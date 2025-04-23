@@ -1,6 +1,7 @@
 from conftest import *
 from locators import *
 from urls import *
+from data import *
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
