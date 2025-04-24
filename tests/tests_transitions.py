@@ -1,4 +1,3 @@
-from conftest import *
 from locators import *
 from urls import *
 from data import *
@@ -55,7 +54,7 @@ class TestTransitions:
         # нажать кнопку "Личный кабинет"
         driver.find_element(*TestLocators.PARAGRAPH_PERSONAL_ACCOUNT_HEADER_LOCATOR).click()
         # текущий url не соответствует url личного кабинета
-        assert Urls.URL_PERSONAL_ACCOUNT not in driver.current_url
+        assert Urls.URL_PERSONAL_ACCOUNT_PAGE not in driver.current_url
 
 
 # проверка перехода по клику на «Личный кабинет», пользователь авторизован
@@ -69,7 +68,7 @@ class TestTransitions:
         # нажать кнопку "Личный кабинет"
         driver.find_element(*TestLocators.PARAGRAPH_PERSONAL_ACCOUNT_HEADER_LOCATOR).click()
         # текущий url соответствует url личного кабинета
-        assert driver.current_url == Urls.URL_PERSONAL_ACCOUNT
+        assert driver.current_url == Urls.URL_PERSONAL_ACCOUNT_PAGE
 
 
 

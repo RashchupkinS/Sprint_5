@@ -27,17 +27,17 @@ class Buttons:
 
 # генератор регистрационных данных
 class GenerateRegistrationData:
-    def __init__(self, base="sergeyrashchupkin", counter_file="counter.txt"):
+    def __init__(self, base="sergeyrashchupkin", counter_file=None):
         self.base = base
-        self.counter_file = counter_file
+        self.counter_file = counter_file or os.path.join(os.path.dirname(os.path.abspath(__file__)), "counter.txt")
         self.counter = self._load_counter()
 
 # загрузка текущего значения счётчика из файла, если файл отсутствует — вернуть стартовое значение 15000
     def _load_counter(self):
-        if os.path.exists(self.counter_file):
+        try:
             with open(self.counter_file, "r") as f:
                 return int(f.read())
-        else:
+        except (FileNotFoundError, ValueError):
             return 19150  # стартовое значение счётчика при первом запуске
 
 # хранение текущего значения счётчика в файле, вызывается после генерации каждого набора данных

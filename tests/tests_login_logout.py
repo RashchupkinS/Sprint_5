@@ -1,5 +1,4 @@
-from conftest import *
-from locators import TestLocators
+from locators import *
 from data import *
 from urls import *
 from selenium.webdriver.support import expected_conditions as EC
@@ -55,7 +54,7 @@ class TestLogin:
 # проверка входа по кнопке "Войти" в форме восстановления пароля
     def test_login_account_from_forgot_password_page_by_button_login_account(self, driver, open_page, login_registered_user):
         # открытие сайта - раздел "Восстановление пароля"
-        open_page(Urls.URL_FORGOT_PASSWORD)
+        open_page(Urls.URL_FORGOT_PASSWORD_PAGE)
         # нажать ссылку "Войти"
         driver.find_element(*TestLocators.LINK_LOGIN_ACCOUNT_FORGOT_PASSWORD_PAGE_LOCATOR).click()
         # вход зарегистрированного пользователя
@@ -81,7 +80,7 @@ class TestLogin:
         # клик по ссылке "Личный кабинет" в хедере
         driver.find_element(*TestLocators.PARAGRAPH_PERSONAL_ACCOUNT_HEADER_LOCATOR).click()
         # текущий url не соответствует url личного кабинета
-        assert Urls.URL_PERSONAL_ACCOUNT not in driver.current_url
+        assert Urls.URL_PERSONAL_ACCOUNT_PAGE not in driver.current_url
 
 
 

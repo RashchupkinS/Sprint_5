@@ -1,4 +1,3 @@
-from conftest import *
 from locators import *
 from urls import *
 from selenium.webdriver.support import expected_conditions as EC

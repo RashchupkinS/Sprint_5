@@ -1,5 +1,4 @@
-from conftest import *
-from locators import TestLocators
+from locators import *
 from data import *
 from urls import *
 from selenium.webdriver.support import expected_conditions as EC
@@ -31,7 +30,7 @@ class TestRegistrationPage:
         # заполнение данных для входа в аккаунт, данными сгенерированными для этого теста
         login_registered_user(current_test_email, current_test_password)
         # проверка, что текущая страница - страница личного кабинета
-        assert driver.current_url == Urls.URL_PERSONAL_ACCOUNT
+        assert driver.current_url == Urls.URL_PERSONAL_ACCOUNT_PAGE
 
 
 # проверка вывода ошибки при вводе некорректного пароля при регистрации
